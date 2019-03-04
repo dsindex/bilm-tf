@@ -26,7 +26,7 @@ $ export CUDA_VISIBLE_DEVICES=0,1,2
 $ python bin/train_elmo.py --train_prefix='data/split/*' --vocab_file data/vocab.txt --save_dir data/checkpoint
 ```
 
-- evaludation
+- evaluation
 ```
 $ export CUDA_VISIBLE_DEVICES=0
 $ python bin/run_test.py --test_prefix='data/dev.txt' --vocab_file data/vocab.txt --save_dir data/checkpoint
