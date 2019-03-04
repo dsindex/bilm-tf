@@ -24,6 +24,8 @@ $ cat vocab.head vocab.tail > vocab.txt
 ```
 $ export CUDA_VISIBLE_DEVICES=0,1,2
 $ python bin/train_elmo.py --train_prefix='data/split/*' --vocab_file data/vocab.txt --save_dir data/checkpoint
+* you must have data/checkpoint/options.json before training. and n_characters should be '261'
+$ tensorboard --logdir data/checkpoint --port 20476
 ```
 
 - evaluation
@@ -35,8 +37,9 @@ $ python bin/run_test.py --test_prefix='data/dev.txt' --vocab_file data/vocab.tx
 - convert to hdf5
 ```
 * create options file
-* :: data/kor_elmo_2x4096_512_2048cnn_2xhighway_3.4G_options.json
-$ python bin/dump_weights.py --save_dir data/checkpoint --outfile data/kor_elmo_2x4096_512_2048cnn_2xhighway_3.4G_weights.hdf5
+*   data/kor_elmo_2x4096_512_2048cnn_2xhighway_options.json
+*   this option file should be same as data/checkpoint/options.json. but n_characters should be '262'
+$ python bin/dump_weights.py --save_dir data/checkpoint --outfile data/kor_elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
 ```
 
 ----
