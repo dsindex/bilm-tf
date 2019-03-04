@@ -1,3 +1,46 @@
+# Pre-training ELMo
+
+### How to train
+
+- prepare data
+```
+$ cd data
+$ ls -al all.dha
+3.4G all.dha
+$ python split_train_dev.py --dev dev.txt < all.dha > train.txt
+$ mkdir split
+python split_train.py --prefix split/train.txt < train.txt
+* number of splits : 100
+```
+
+- prepare vocab
+```
+$ python build_vocab.py < all.dha > vocab.tail
+$ cat vocab.head vocab.tail > vocab.txt
+* vocab size : 424696
+```
+
+- train
+```
+$ export CUDA_VISIBLE_DEVICES=0,1,2
+$ python bin/train_elmo.py --train_prefix='data/split/*' --vocab_file data/vocab.txt --save_dir data/checkpoint
+```
+
+- evaludation
+```
+$ export CUDA_VISIBLE_DEVICES=0
+$ python bin/run_test.py --test_prefix='data/dev.txt' --vocab_file data/vocab.txt --save_dir data/checkpoint
+```
+
+- convert to hdf5
+```
+* create options file
+* :: data/kor_elmo_2x4096_512_2048cnn_2xhighway_3.4G_options.json
+$ python bin/dump_weights.py --save_dir data/checkpoint --outfile data/kor_elmo_2x4096_512_2048cnn_2xhighway_3.4G_weights.hdf5
+```
+
+----
+
 # bilm-tf
 Tensorflow implementation of the pretrained biLM used to compute ELMo
 representations from ["Deep contextualized word representations"](http://arxiv.org/abs/1802.05365).
