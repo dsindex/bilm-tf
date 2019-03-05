@@ -26,7 +26,7 @@ $ export CUDA_VISIBLE_DEVICES=0,1,2
 $ python bin/train_elmo.py --train_prefix='data/split/*' --vocab_file data/vocab.txt --save_dir data/checkpoint
 * you must have data/checkpoint/options.json before training. and n_characters should be '261'
 $ tensorboard --logdir data/checkpoint --port 20476
-* it is prefered to get the train perplexity below 60.
+* it is prefered to get the train perplexity below 20.
 ```
 
 - evaluation
