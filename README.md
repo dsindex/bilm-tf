@@ -28,6 +28,7 @@ $ python bin/train_elmo.py --train_prefix='data/split/*' --vocab_file data/vocab
 $ tensorboard --logdir data/checkpoint --port 20476
 * it is prefered to get the train perplexity below 20.
 ```
+![](/data/perplexity.png)
 
 - evaluation
 ```
