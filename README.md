@@ -26,7 +26,7 @@ $ export CUDA_VISIBLE_DEVICES=0,1,2
 $ python bin/train_elmo.py --train_prefix='data/split/*' --vocab_file data/vocab.txt --save_dir data/checkpoint
 * you must have data/checkpoint/options.json before training. and n_characters should be '261'
 $ tensorboard --logdir data/checkpoint --port 20476
-* it is prefered to get the train perplexity below 20.
+* it is prefered to get the train perplexity below 16.
 ```
 ![](/data/perplexity.png)
 
@@ -34,6 +34,11 @@ $ tensorboard --logdir data/checkpoint --port 20476
 ```
 $ export CUDA_VISIBLE_DEVICES=0
 $ python bin/run_test.py --test_prefix='data/dev.txt' --vocab_file data/vocab.txt --save_dir data/checkpoint
+...
+batch=2142, batch_perplexity=28.792585, avg_perplexity=26.2015071687237, time=282.07257413864136
+batch=2143, batch_perplexity=29.31081, avg_perplexity=26.202878283810477, time=282.19954442977905
+batch=2144, batch_perplexity=22.290133, avg_perplexity=26.2009018355684, time=282.328161239624
+FINSIHED!  AVERAGE PERPLEXITY = 26.200907
 ```
 
 - convert to hdf5
