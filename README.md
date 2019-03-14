@@ -19,6 +19,7 @@ python split_train.py --prefix split/train.txt < train.txt
 ```
 $ python build_vocab.py < all.dha > vocab.tail
 $ cat vocab.head vocab.tail > vocab.txt
+* min freq : 10
 * vocab size : 424696
 ```
 
@@ -49,6 +50,14 @@ FINSIHED!  AVERAGE PERPLEXITY = 26.200907
 *   data/kor_elmo_2x4096_512_2048cnn_2xhighway_options.json
 *   this option file should be same as data/checkpoint/options.json. but n_characters should be '262'
 $ python bin/dump_weights.py --save_dir data/checkpoint --outfile data/kor_elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
+...
+Saving variable lm/RNN_1/rnn/multi_rnn_cell/cell_0/lstm_cell/projection/kernel:0 with name RNN_1/RNN/MultiRNNCell/Cell0/LSTMCell/W_P_0
+Saving variable lm/RNN_1/rnn/multi_rnn_cell/cell_1/lstm_cell/kernel:0 with name RNN_1/RNN/MultiRNNCell/Cell1/LSTMCell/W_0
+Saving variable lm/RNN_1/rnn/multi_rnn_cell/cell_1/lstm_cell/bias:0 with name RNN_1/RNN/MultiRNNCell/Cell1/LSTMCell/B
+Saving variable lm/RNN_1/rnn/multi_rnn_cell/cell_1/lstm_cell/projection/kernel:0 with name RNN_1/RNN/MultiRNNCell/Cell1/LSTMCell/W_P_0
+$ ls -alrh data/kor_elmo_*
+358M Mar 14 15:28 data/kor_elmo_2x4096_512_2048cnn_2xhighway_weights.hdf5
+336  Mar  4 16:17 data/kor_elmo_2x4096_512_2048cnn_2xhighway_options.json
 ```
 
 ----
