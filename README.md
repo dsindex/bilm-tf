@@ -37,11 +37,24 @@ $ tensorboard --logdir data/checkpoint --port 20476
 ```
 $ export CUDA_VISIBLE_DEVICES=0
 $ python bin/run_test.py --test_prefix='data/dev.txt' --vocab_file data/vocab.txt --save_dir data/checkpoint
+* 622k
 ...
 batch=2142, batch_perplexity=28.792585, avg_perplexity=26.2015071687237, time=282.07257413864136
 batch=2143, batch_perplexity=29.31081, avg_perplexity=26.202878283810477, time=282.19954442977905
 batch=2144, batch_perplexity=22.290133, avg_perplexity=26.2009018355684, time=282.328161239624
 FINSIHED!  AVERAGE PERPLEXITY = 26.200907
+* 882k
+...
+batch=2142, batch_perplexity=26.86526, avg_perplexity=25.203678345374446, time=301.8380455970764
+batch=2143, batch_perplexity=29.188284, avg_perplexity=25.205404643891715, time=301.988431930542
+batch=2144, batch_perplexity=21.82072, avg_perplexity=25.203709467575425, time=302.1194748878479
+FINSIHED!  AVERAGE PERPLEXITY = 25.203709
+* 1000k
+...
+batch=2142, batch_perplexity=26.585043, avg_perplexity=24.98611284249014, time=306.21768736839294
+batch=2143, batch_perplexity=27.791664, avg_perplexity=24.98735362016447, time=306.3513493537903
+batch=2144, batch_perplexity=21.695204, avg_perplexity=24.985707135721757, time=306.5053493976593
+FINSIHED!  AVERAGE PERPLEXITY = 24.985706
 ```
 
 - convert to hdf5
